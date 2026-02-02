@@ -12,15 +12,27 @@
 
 <body>
   <!-- SIDEBAR -->
-  <div class="sidebar">
-    <h2>CRUDTASK</h2>
-    <nav>
-      <a href="./tasks.html">📋 Tasks</a>
-      <a href="./profile.html">👤 Profile</a>
-      <a href="./admin.html">🛠 Admin</a>
-      <button id="logoutBtn">🚪 Logout</button>
-    </nav>
-  </div>
+   <div class="container">
+     <div class="sidebar">
+       <div class="sidebar-header">
+         <img src="../../src/assets/logo.png" alt="CRUDTASK Logo" class="logo" />
+         <h2>CRUDTASK</h2>
+        </div>
+        <nav>
+          <div class="sidebar-header active-link">
+            <img src="../../src/assets/icon2.png" alt="Tasks Icon" class="icon1" />
+            <a href="./tasks.html">Tasks</a>
+          </div>
+          <div class="sidebar-header active-link">
+            <img src="../../src/assets/icon3.png" alt="Profile Icon" class="icon2" />
+            <a href="./profile.html">Profile</a>
+          </div>
+          <button id="logoutBtn" class="sidebar-header active-link">Logout</button>
+          <div class="sidebar-header active-link">
+            <a href="./admin.html">🛠 Admin</a>
+          </div>
+        </nav>
+      </div>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="with-sidebar">
@@ -31,48 +43,68 @@
       </div>
     </section>
 
-    <section class="task-filters">
-      <button class="filter-btn active" data-filter="all">All Tasks</button>
-      <button class="filter-btn" data-filter="pending">Pending</button>
-      <button class="filter-btn" data-filter="completed">Completed</button>
-    </section>
+    <div class="container_main">
 
+      <section class="section_h2">
+        <div class="section__h2__left">
+          <h2>My Tasks</h2>
+          <p>View, edit, and organice all academic task in one place.</p>
+        </div>
+        <div>
+          <a href="../views/create.html" class="new-task-link">+ New Task</a>
+        </div>
 
-    <h2>My Tasks</h2>
+      </section>
+      
+      <!-- MÉTRICAS -->
+      <section class="metrics">
+        <div class="metrics__container">
+          <div>Total Tasks <br> <span id="totalTasks">0</span></div>
+          <img src="../../src/assets/icon4.png" alt="Tareas completadas">
+        </div>
+        <div class="metrics__container">
+          <div>Pending <br> <span id="pendingTasks">0</span></div>
+          <img src="../../src/assets/icon5.png" alt="Tareas pendientes">
+        </div>
+        <div class="metrics__container">
+          <div>Completed <br> <span id="completedTasks">0</span></div>
+          <img src="../../src/assets/icon6.png" alt="tareas hechas">
+        </div>
+      </section>
+      
+      <!-- BOTÓN NUEVA TAREA -->
+      <section class="tasks-header">
+      </section>
+      
+      <section class="task-filters">
+        <button class="filter-btn active" data-filter="all">All Tasks</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </section>
 
-    <!-- MÉTRICAS -->
-    <section class="metrics">
-      <div>Total: <span id="totalTasks">0</span></div>
-      <div>Pending: <span id="pendingTasks">0</span></div>
-      <div>Completed: <span id="completedTasks">0</span></div>
-    </section>
-
-    <!-- BOTÓN NUEVA TAREA -->
-    <section class="tasks-header">
-      <a href="../views/create.html" class="new-task-link">+ New Task</a>
-    </section>
-
-    <!-- TABLA -->
-    <section>
-      <table>
-        <thead>
-          <tr>
-            <th>Task</th>
-            <th>Status</th>
-            <th>Category</th>
-            <th>Priority</th>
-            <th>Due Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-
-
-        <tbody id="taskList">
-          <!-- tareas del usuario -->
-        </tbody>
-      </table>
-    </section>
+      <!-- TABLA -->
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Status</th>
+              <th>Category</th>
+              <th>Priority</th>
+              <th>Due Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          
+          
+          <tbody id="taskList">
+            <!-- tareas del usuario -->
+          </tbody>
+        </table>
+      </section>
+    </div>
   </main>
 </body>
+</div>
 
 </html>

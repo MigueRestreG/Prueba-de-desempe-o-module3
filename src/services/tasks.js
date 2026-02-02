@@ -152,7 +152,7 @@ function toggleStatus(id, currentStatus) {
     .then(task => {
 
       // 2. Actualizar solo el estado
-      const updatedTask = {
+      const updatedTask = { 
         ...task,
         status: newStatus
       };
@@ -170,20 +170,24 @@ function toggleStatus(id, currentStatus) {
 // =======================
 // EDITAR TAREA
 // =======================
-function editTask(id, currentTitle, currentStatus, currentPriority) {
+function editTask(id, currentTitle) {
   const newTitle = prompt("Edit task title:", currentTitle);
-  if (!newTitle) return;
+  
+  // Validar que no esté vacío y que sea diferente al actual
+  if (!newTitle || newTitle === currentTitle) return;
 
   fetch(`${API_URL}/tasks/${id}`, {
-    method: "PUT",
+    method: "PATCH", // Cambiado de PUT a PATCH
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      title: newTitle,
-      status: currentStatus,
-      priority: currentPriority,
-      userId: session.id,
+      title: newTitle // Solo enviamos lo que queremos cambiar
     }),
-  }).then(loadTasks);
+  })
+  .then(res => {
+    if (!res.ok) throw new Error("Error al actualizar");
+    loadTasks();
+  })
+  .catch(err => console.error("Error:", err));
 }
 
 // =======================

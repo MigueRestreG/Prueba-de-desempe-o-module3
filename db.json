@@ -13,17 +13,24 @@
       "email": "prueba1@prueba1.com",
       "password": "123456",
       "role": "user"
+    },
+    {
+      "id": "4f33",
+      "name": "Miguelangel",
+      "email": "migue200707@gmail.com",
+      "password": "011007m",
+      "role": "user"
     }
   ],
   "tasks": [
     {
-      "id": "2b01",
-      "title": "Adios",
-      "category": "History",
-      "priority": "low",
+      "id": "14f4",
+      "title": "No quiero",
+      "category": "Si",
+      "priority": "high",
       "status": "pending",
-      "dueDate": "1999-12-19",
-      "description": "",
+      "dueDate": "2007-10-01",
+      "description": "HOLAAAA",
       "userId": "8c81"
     }
   ]
