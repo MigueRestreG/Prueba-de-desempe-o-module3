@@ -1,0 +1,5 @@
+/* Ya usa auth-card del CSS global */
+.auth-card p {
+  margin-top: 10px;
+  font-size: 14px;
+}

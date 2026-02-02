@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <title>Admin Dashboard | CRUDTASK</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="../../src/services/guard.js" type="module"></script>
-    <script src="../../src/services/admin.js" type="module"></script>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | CRUDTASK</title>
+  <link rel="stylesheet" href="../../src/styles/style.css">
+  <link rel="stylesheet" href="../../src/styles/admin.css">
+  <script src="../../src/services/guard.js" type="module"></script>
+  <script src="../../src/services/admin.js" type="module"></script>
+</head>
 
 <body>
   <header>
@@ -17,16 +18,18 @@
   </header>
 
   <main>
-    <!-- Métricas -->
+
+    <!-- MÉTRICAS -->
     <section class="metrics">
       <div>Total Tasks: <span id="totalTasks">0</span></div>
       <div>Pending: <span id="pendingTasks">0</span></div>
       <div>Completed: <span id="completedTasks">0</span></div>
     </section>
 
-    <!-- Tabla de tareas -->
+    <!-- TABLA -->
     <section>
       <h3>All Tasks</h3>
+
       <table>
         <thead>
           <tr>
@@ -36,11 +39,13 @@
             <th>Actions</th>
           </tr>
         </thead>
+
         <tbody id="adminTaskList">
           <!-- tareas del sistema -->
         </tbody>
       </table>
     </section>
+
   </main>
 </body>
 </html>

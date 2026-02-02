@@ -1,0 +1,22 @@
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+table td button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+table td button:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+  h3 {
+    text-align: center;
+  }
+}

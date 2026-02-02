@@ -1,24 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>My Tasks | CRUDTASK</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../../src/styles/style.css" />
+  <link rel="stylesheet" href="../../src/styles/task.css" />
   <script src="../../src/services/tasks.js" type="module"></script>
   <script src="../../src/services/guard.js" type="module"></script>
 </head>
+
 <body>
-
-  <header>
-    <h2>My Tasks</h2>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>CRUDTASK</h2>
     <nav>
-      <a href="./tasks.html">Tasks</a>
-      <a href="./profile.html">Profile</a>
-      <button id="logoutBtn">Logout</button>
+      <a href="./tasks.html">📋 Tasks</a>
+      <a href="./profile.html">👤 Profile</a>
+      <a href="./admin.html">🛠 Admin</a>
+      <button id="logoutBtn">🚪 Logout</button>
     </nav>
-  </header>
+  </div>
 
-  <main>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="with-sidebar">
+    <section class="topbar">
+      <div class="user-info">
+        <strong>Alex Morgan</strong>
+        <span>Product Designer</span>
+      </div>
+    </section>
+
+    <section class="task-filters">
+      <button class="filter-btn active" data-filter="all">All Tasks</button>
+      <button class="filter-btn" data-filter="pending">Pending</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </section>
+
+
+    <h2>My Tasks</h2>
 
     <!-- MÉTRICAS -->
     <section class="metrics">
@@ -27,28 +47,32 @@
       <div>Completed: <span id="completedTasks">0</span></div>
     </section>
 
+    <!-- BOTÓN NUEVA TAREA -->
     <section class="tasks-header">
-      <button id="newTaskBtn">+ New Task</button>
+      <a href="../views/create.html" class="new-task-link">+ New Task</a>
     </section>
 
+    <!-- TABLA -->
     <section>
       <table>
         <thead>
           <tr>
             <th>Task</th>
             <th>Status</th>
+            <th>Category</th>
             <th>Priority</th>
+            <th>Due Date</th>
             <th>Actions</th>
           </tr>
         </thead>
+
 
         <tbody id="taskList">
           <!-- tareas del usuario -->
         </tbody>
       </table>
     </section>
-
   </main>
-
 </body>
+
 </html>

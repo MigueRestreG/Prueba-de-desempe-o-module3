@@ -1,0 +1,77 @@
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.form-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.form-card h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.cancel-btn {
+  background: #ccc;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.save-btn {
+  background: #007bff;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #005fcc;
+}

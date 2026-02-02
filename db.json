@@ -17,18 +17,14 @@
   ],
   "tasks": [
     {
-      "title": "PruebaTarea2",
-      "status": "completed",
-      "priority": "medium",
-      "userId": "8c81",
-      "id": "2155"
-    },
-    {
-      "title": "pruebaTarea3",
-      "status": "completed",
-      "priority": "medium",
-      "userId": "8c81",
-      "id": "cc76"
+      "id": "2b01",
+      "title": "Adios",
+      "category": "History",
+      "priority": "low",
+      "status": "pending",
+      "dueDate": "1999-12-19",
+      "description": "",
+      "userId": "8c81"
     }
   ]
 }

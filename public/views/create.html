@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create Task | CRUDTASK</title>
+    <link rel="stylesheet" href="../../src/styles/style.css" />
+    <link rel="stylesheet" href="../../src/styles/create.css" />
+    <script src="../../src/services/create.js" type="module"></script>
+  </head>
+
+  <body>
+    <main class="form-container">
+      <a href="./tasks.html" class="back-link">← Back to Tasks</a>
+
+      <div class="form-card">
+        <h2>Create New Task</h2>
+
+        <form id="createForm">
+          <label>Title</label>
+          <input
+            type="text"
+            id="title"
+            placeholder="e.g. Complete Quarter 3 Report"
+            required
+          />
+
+          <label>Category</label>
+          <input
+            type="text"
+            id="category"
+            placeholder="e.g. Mathematics, History, Design"
+            required
+          />
+
+          <label>Priority</label>
+          <select id="priority" required>
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+
+          <label>Status</label>
+          <select id="status" required>
+            <option value="pending" selected>Pending</option>
+            <option value="completed">Completed</option>
+          </select>
+
+          <label>Due Date</label>
+          <input type="date" id="dueDate" />
+
+          <label>Description</label>
+          <textarea
+            id="description"
+            placeholder="Add details about this task..."
+          ></textarea>
+
+          <div class="form-actions">
+            <a href="./tasks.html" class="cancel-btn">Cancel</a>
+            <button type="submit" class="save-btn">Save Task</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
