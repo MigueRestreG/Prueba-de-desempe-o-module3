@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | CRUDTASK</title>
+    <!-- Main layout and component styles -->
     <link rel="stylesheet" href="../../src/styles/style.css">
-    <!-- (Opcional) aquí podrías luego agregar login.css -->
+    <!-- Authentication service logic -->
     <script src="../../src/services/auth.js" type="module"></script>
   </head>
   <body>
     <main class="auth-container">
+      <!-- Authentication Card Component -->
       <div class="auth-card">
         <h1>Welcome back</h1>
         <p>Enter your credentials to access the platform</p>
 
         <form id="loginForm">
-          <label>Email</label>
+          <label for="email">Email</label>
           <input type="email" id="email" required placeholder="student@university.edu">
 
-          <label>Password</label>
-          <input type="password" id="password" required placeholder="------------------">
+          <label for="password">Password</label>
+          <input type="password" id="password" required placeholder="••••••••••••••••">
 
+          <!-- Action Trigger -->
           <button type="submit">Sign in</button>
         </form>
 
+        <!-- Navigation Footer -->
         <p style="margin-top: 15px; font-size: 14px;">
           Don't have an account?
           <a href="../../public/views/register.html">Register</a>

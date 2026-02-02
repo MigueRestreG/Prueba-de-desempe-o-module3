@@ -1,51 +1,109 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Admin Dashboard | CRUDTASK</title>
-  <link rel="stylesheet" href="../../src/styles/style.css">
-  <link rel="stylesheet" href="../../src/styles/admin.css">
-  <script src="../../src/services/guard.js" type="module"></script>
-  <script src="../../src/services/admin.js" type="module"></script>
-</head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | CRUDTASK</title>
+    <!-- Core and specific component styles -->
+    <link rel="stylesheet" href="../../src/styles/style.css" />
+    <link rel="stylesheet" href="../../src/styles/admin.css" />
+    <!-- Logic and Security Services -->
+    <script src="../../src/services/guard.js" type="module"></script>
+    <script src="../../src/services/admin.js" type="module"></script>
+  </head>
 
-<body>
-  <header>
-    <h2>Admin Dashboard</h2>
-    <nav>
-      <button id="logoutBtn">Logout</button>
-    </nav>
-  </header>
+  <body>
+    <div class="container">
+      <!-- SIDEBAR NAVIGATION -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <img src="../../src/assets/logo.png" alt="Company Logo" class="logo" />
+          <h2>CRUDTASK</h2>
+        </div>
+        <nav>
+          <a href="./tasks.html" class="active-link">
+            <img src="../../src/assets/icon2.png" alt="Tasks Icon" /> Tasks
+          </a>
+          <a href="./profile.html" class="active-link">
+            <img src="../../src/assets/icon3.png" alt="Profile Icon" /> Profile
+          </a>
+          <!-- Admin Link marked as the current active page -->
+          <a href="./admin.html" class="active-link active">
+             <span style="margin-right: 10px;">🛠</span> Admin 
+          </a>
+          <button id="logoutBtn" class="active-link">Logout</button>
+        </nav>
+      </aside>
 
-  <main>
+      <!-- MAIN CONTENT AREA -->
+      <main class="with-sidebar">
+        <!-- TOP NAVIGATION BAR -->
+        <header class="topbar">
+          <div class="user-info">
+            <div>
+              <strong>Alex Morgan</strong>
+              <span>System Administrator</span>
+            </div>
+          </div>
+        </header>
 
-    <!-- MÉTRICAS -->
-    <section class="metrics">
-      <div>Total Tasks: <span id="totalTasks">0</span></div>
-      <div>Pending: <span id="pendingTasks">0</span></div>
-      <div>Completed: <span id="completedTasks">0</span></div>
-    </section>
+        <div class="container_main">
+          <!-- SECTION HEADER -->
+          <section class="section_h2">
+            <div class="section__h2__left">
+              <h2>Admin Dashboard</h2>
+              <p>Global overview of all academic performance tasks in the system.</p>
+            </div>
+          </section>
 
-    <!-- TABLA -->
-    <section>
-      <h3>All Tasks</h3>
+          <!-- KEY PERFORMANCE METRICS -->
+          <section class="metrics">
+            <div class="metrics__container">
+              <div>Total Tasks <br /><span id="totalTasks">0</span></div>
+              <img src="../../src/assets/icon8.png" alt="Total Tasks" />
+            </div>
+            <div class="metrics__container">
+              <div>Pending <br /><span id="pendingTasks">0</span></div>
+              <img src="../../src/assets/icon9.png" alt="Pending Tasks" />
+            </div>
+            <div class="metrics__container">
+              <div>Completed <br /><span id="completedTasks">0</span></div>
+              <img src="../../src/assets/icon10.png" alt="Completed Tasks" />
+            </div>
+            <div class="metrics__container progress-card">
+              <div class="metrics__content">
+                <p class="metrics__label">Overall Progress</p>
+                <span id="progressPercent">0%</span>
+              </div>
+              <div class="metrics__icon-wrapper">
+                <img src="../../src/assets/icon7.png" alt="Progress Indicator" class="progress-icon">
+              </div>
+            </div>
+          </section>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Task</th>
-            <th>User</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
+          <!-- GLOBAL TASK MANAGEMENT TABLE -->
+          <section class="table-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <h3>All System Tasks</h3>
+            </div>
 
-        <tbody id="adminTaskList">
-          <!-- tareas del sistema -->
-        </tbody>
-      </table>
-    </section>
-
-  </main>
-</body>
+            <table>
+              <thead>
+                <tr>
+                  <th>Task Name</th>
+                  <th>Assignee (ID)</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminTaskList">
+                <!-- Dynamically populated via admin.js -->
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>

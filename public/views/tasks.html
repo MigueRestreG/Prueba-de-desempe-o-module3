@@ -1,110 +1,107 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Tasks | CRUDTASK</title>
+  <!-- Global and task-specific styles -->
   <link rel="stylesheet" href="../../src/styles/style.css" />
   <link rel="stylesheet" href="../../src/styles/task.css" />
+  <!-- Task management and security services -->
   <script src="../../src/services/tasks.js" type="module"></script>
   <script src="../../src/services/guard.js" type="module"></script>
 </head>
 
 <body>
-  <!-- SIDEBAR -->
-   <div class="container">
-     <div class="sidebar">
-       <div class="sidebar-header">
-         <img src="../../src/assets/logo.png" alt="CRUDTASK Logo" class="logo" />
-         <h2>CRUDTASK</h2>
-        </div>
-        <nav>
-          <div class="sidebar-header active-link">
-            <img src="../../src/assets/icon2.png" alt="Tasks Icon" class="icon1" />
-            <a href="./tasks.html">Tasks</a>
-          </div>
-          <div class="sidebar-header active-link">
-            <img src="../../src/assets/icon3.png" alt="Profile Icon" class="icon2" />
-            <a href="./profile.html">Profile</a>
-          </div>
-          <button id="logoutBtn" class="sidebar-header active-link">Logout</button>
-          <div class="sidebar-header active-link">
-            <a href="./admin.html">🛠 Admin</a>
-          </div>
-        </nav>
+  <div class="container">
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="../../src/assets/logo.png" alt="Company Logo" class="logo" />
+        <h2>CRUDTASK</h2>
       </div>
+      <nav>
+        <a href="./tasks.html" class="active-link">
+          <img src="../../src/assets/icon2.png" alt="Tasks Icon" /> Tasks
+        </a>
+        <a href="./profile.html" class="active-link">
+          <img src="../../src/assets/icon3.png" alt="Profile Icon" /> Profile
+        </a>
+        <!-- Admin Link: Visibility managed by user role -->
+        <a href="./admin.html" class="active-link">
+           <span style="margin-right: 10px;">🛠</span> Admin 
+        </a>
+        <button id="logoutBtn" class="active-link">Logout</button>
+      </nav>
+    </aside>
 
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="with-sidebar">
-    <section class="topbar">
-      <div class="user-info">
-        <strong>Alex Morgan</strong>
-        <span>Product Designer</span>
+    <!-- MAIN CONTENT AREA -->
+    <main class="with-sidebar">
+      <!-- TOP NAVIGATION BAR -->
+      <section class="topbar">
+        <div class="user-info">
+          <strong>Alex Morgan</strong>
+          <span>Product Designer</span>
+        </div>
+      </section>
+
+      <div class="container_main">
+        <!-- SECTION HEADER & ACTION TRIGGER -->
+        <section class="section_h2">
+          <div class="section__h2__left">
+            <h2>My Tasks</h2>
+            <p>View, edit, and organize all academic tasks in one place.</p>
+          </div>
+          <div>
+            <a href="../views/create.html" class="new-task-link">+ New Task</a>
+          </div>
+        </section>
+
+        <!-- PERFORMANCE METRICS SUMMARY -->
+        <section class="metrics">
+          <div class="metrics__container">
+            <div>Total Tasks <br> <span id="totalTasks">0</span></div>
+            <img src="../../src/assets/icon4.png" alt="Total Tasks Icon">
+          </div>
+          <div class="metrics__container">
+            <div>Pending <br> <span id="pendingTasks">0</span></div>
+            <img src="../../src/assets/icon5.png" alt="Pending Tasks Icon">
+          </div>
+          <div class="metrics__container">
+            <div>Completed <br> <span id="completedTasks">0</span></div>
+            <img src="../../src/assets/icon6.png" alt="Completed Tasks Icon">
+          </div>
+        </section>
+
+        <!-- DATA FILTERING CONTROLS -->
+        <section class="task-filters">
+          <button class="filter-btn active" data-filter="all">All Tasks</button>
+          <button class="filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </section>
+
+        <!-- TASKS DATA TABLE -->
+        <section class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Category</th>
+                <th>Priority</th>
+                <th>Due Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="taskList">
+              <!-- Dynamically populated via tasks.js -->
+            </tbody>
+          </table>
+        </section>
       </div>
-    </section>
-
-    <div class="container_main">
-
-      <section class="section_h2">
-        <div class="section__h2__left">
-          <h2>My Tasks</h2>
-          <p>View, edit, and organice all academic task in one place.</p>
-        </div>
-        <div>
-          <a href="../views/create.html" class="new-task-link">+ New Task</a>
-        </div>
-
-      </section>
-      
-      <!-- MÉTRICAS -->
-      <section class="metrics">
-        <div class="metrics__container">
-          <div>Total Tasks <br> <span id="totalTasks">0</span></div>
-          <img src="../../src/assets/icon4.png" alt="Tareas completadas">
-        </div>
-        <div class="metrics__container">
-          <div>Pending <br> <span id="pendingTasks">0</span></div>
-          <img src="../../src/assets/icon5.png" alt="Tareas pendientes">
-        </div>
-        <div class="metrics__container">
-          <div>Completed <br> <span id="completedTasks">0</span></div>
-          <img src="../../src/assets/icon6.png" alt="tareas hechas">
-        </div>
-      </section>
-      
-      <!-- BOTÓN NUEVA TAREA -->
-      <section class="tasks-header">
-      </section>
-      
-      <section class="task-filters">
-        <button class="filter-btn active" data-filter="all">All Tasks</button>
-        <button class="filter-btn" data-filter="pending">Pending</button>
-        <button class="filter-btn" data-filter="completed">Completed</button>
-      </section>
-
-      <!-- TABLA -->
-      <section>
-        <table>
-          <thead>
-            <tr>
-              <th>Task</th>
-              <th>Status</th>
-              <th>Category</th>
-              <th>Priority</th>
-              <th>Due Date</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          
-          
-          <tbody id="taskList">
-            <!-- tareas del usuario -->
-          </tbody>
-        </table>
-      </section>
-    </div>
-  </main>
+    </main>
+  </div>
 </body>
-</div>
 
 </html>

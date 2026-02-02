@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register | CRUDTASK</title>
+  <!-- Base layout and authentication styles -->
   <link rel="stylesheet" href="../../src/styles/style.css">
+  <!-- Authentication service for registration logic -->
   <script src="../../src/services/auth.js" type="module"></script>
 </head>
 <body>
@@ -14,21 +17,25 @@
       <p>Join the academic task platform</p>
 
       <form id="registerForm">
-        <label>Full name</label>
-        <input type="text" id="name" required>
+        <!-- User Personal Data -->
+        <label for="name">Full name</label>
+        <input type="text" id="name" placeholder="John Doe" required>
 
-        <label>Email</label>
-        <input type="email" id="email" required>
+        <!-- Credentials -->
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="student@university.edu" required>
 
-        <label>Password</label>
-        <input type="password" id="password" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••••••••••" required>
 
-        <label>Confirm password</label>
-        <input type="password" id="confirmPassword" required>
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" id="confirmPassword" placeholder="••••••••••••••••" required>
 
+        <!-- Submission Trigger -->
         <button type="submit">Register</button>
       </form>
 
+      <!-- Navigation Footer -->
       <p style="margin-top: 15px; font-size: 14px;">
         Already have an account?
         <a href="../../public/views/login.html">Sign in</a>

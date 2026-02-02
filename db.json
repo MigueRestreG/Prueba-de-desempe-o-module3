@@ -9,7 +9,7 @@
     },
     {
       "id": "8c81",
-      "name": "Prueba1",
+      "name": "Prueba3",
       "email": "prueba1@prueba1.com",
       "password": "123456",
       "role": "user"
@@ -28,7 +28,7 @@
       "title": "No quiero",
       "category": "Si",
       "priority": "high",
-      "status": "pending",
+      "status": "completed",
       "dueDate": "2007-10-01",
       "description": "HOLAAAA",
       "userId": "8c81"

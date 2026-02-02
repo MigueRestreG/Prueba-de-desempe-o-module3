@@ -1,22 +1,163 @@
+/* ============================================================
+   BASE STYLES (General & Mobile First)
+   ============================================================ */
 h3 {
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 20px;
 }
 
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info strong { font-size: 16px; }
+.user-info span { font-size: 13px; color: #666; }
+
+/* Table & Action Buttons */
 table td button {
   padding: 6px 10px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-table td button:hover {
-  opacity: 0.85;
+table td button:hover { opacity: 0.85; }
+
+/* Status & Priority Badges */
+.status, .priority {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: white;
 }
 
+.status.pending { background: #ffc107; color: #333; }
+.status.completed { background: #28a745; }
+
+.priority.high { background: #dc3545; }
+.priority.medium { background: #ffc107; color: #333; }
+.priority.low { background: #28a745; }
+
+/* Search Input & Navigation Links */
+#searchInput {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.new-task-link {
+  background: #007bff;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s;
+  text-align: center;
+}
+
+/* Sidebar Links Interaction */
+.active-link {
+  color: white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.active-link img { filter: grayscale(100%); }
+.active-link:hover { background-color: #d8d8d8; color: white; }
+
+/* ============================================================
+   RESPONSIVE: MOBILE DEVICES (Up to 600px)
+   ============================================================ */
 @media (max-width: 600px) {
-  h3 {
-    text-align: center;
+  h3 { text-align: center; }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
+
+  .task-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .new-task-link {
+    display: block;
+    width: 100%;
+  }
+
+  .tasks-header {
+    justify-content: center;
+    margin: 15px 0;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE: TABLETS & DESKTOP (From 601px to 1439px)
+   ============================================================ */
+@media (min-width: 601px) {
+  .task-filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    justify-content: flex-end;
+  }
+
+  .tasks-header {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE: LARGE SCREENS / ULTRA-WIDE (From 1440px)
+   ============================================================ */
+@media (min-width: 1440px) {
+  .container_main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+  table {
+    font-size: 16px; /* Slightly larger text for high-res displays */
+  }
+
+  .user-info strong { font-size: 18px; }
 }

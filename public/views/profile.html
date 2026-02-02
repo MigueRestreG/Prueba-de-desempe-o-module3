@@ -1,32 +1,99 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile | CRUDTASK</title>
+  <!-- Core and profile-specific styles -->
   <link rel="stylesheet" href="../../src/styles/style.css">
   <link rel="stylesheet" href="../../src/styles/profile.css">
+  <!-- Security and Profile data services -->
   <script src="../../src/services/guard.js" type="module"></script>
   <script src="../../src/services/profile.js" type="module"></script>
 </head>
 <body>
+  <div class="container">
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="../../src/assets/logo.png" alt="Company Logo" class="logo" />
+        <h2>CRUDTASK</h2>
+      </div>
+      <nav>
+        <a href="./tasks.html" class="active-link">
+          <img src="../../src/assets/icon2.png" alt="Tasks Icon" /> Tasks
+        </a>
+        <a href="./profile.html" class="active-link">
+          <img src="../../src/assets/icon3.png" alt="Profile Icon" /> Profile
+        </a>
+        <!-- Admin Link: Hidden or shown based on user permissions -->
+        <a href="./admin.html" class="active-link active">
+           <span style="margin-right: 10px;">🛠</span> Admin 
+        </a>
+        <button id="logoutBtn" class="active-link">Logout</button>
+      </nav>
+    </aside>
 
-  <header>
-    <h2>My Profile</h2>
-    <nav>
-      <a href="./tasks.html">Tasks</a>
-      <button id="logoutBtn">Logout</button>
-    </nav>
-  </header>
+    <!-- MAIN CONTENT AREA -->
+    <main class="with-sidebar">
+      <header class="topbar">
+        <h2>My Profile</h2>
+      </header>
 
-  <main>
-    <section class="profile-card">
-      <h3>Personal Information</h3>
+      <div class="container_main profile-layout">
+        
+        <!-- LEFT COLUMN: USER SUMMARY -->
+        <section class="profile-sidebar-card">
+          <h2 id="profileNameMain"></h2>
+          <span class="role-badge" id="profileBadge"></span>
+          
+          <div class="contact-info">
+            <p><span id="profileEmail"></span></p>
+          </div>
 
-      <p><strong>Name:</strong> <span id="profileName"></span></p>
-      <p><strong>Email:</strong> <span id="profileEmail"></span></p>
-      <p><strong>Role:</strong> <span id="profileRole"></span></p>
-    </section>
-  </main>
+          <div class="task-count">
+            <strong id="taskCounter">0</strong>
+            <span>Tasks Assigned</span>
+          </div>
+        </section>
 
+        <!-- RIGHT COLUMN: DETAILED INFORMATION -->
+        <section class="profile-details-card">
+          <div class="card-header">
+            <h3>Personal Information</h3>
+            <button class="edit-btn">Edit Profile</button>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-item">
+              <label>Full Name</label>
+              <p id="fullName">Sarah Jenkins</p>
+            </div>
+            <div class="info-item">
+              <label>Employee ID</label>
+              <p id="employeeId">CZ-882103</p>
+            </div>
+            <div class="info-item">
+              <label>Phone</label>
+              <p id="phone">+1 (555) 123-4567</p>
+            </div>
+            <div class="info-item">
+              <label>Department</label>
+              <p><span class="dept-badge" id="dept">Computer Science</span></p>
+            </div>
+            <div class="info-item">
+              <label>Role Level</label>
+              <p id="roleLevel">Senior Administrator</p>
+            </div>
+            <div class="info-item">
+              <label>Join Date</label>
+              <p id="joinDate">September 14, 2020</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
 </body>
 </html>

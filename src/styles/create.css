@@ -1,29 +1,35 @@
+/* ============================================================
+   BASE STYLES (Mobile First)
+   ============================================================ */
+
+/**
+ * Main container for the form.
+ * Ensures the layout is centered and maintains a safe margin on small screens.
+ */
 .form-container {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+  width: 95%; /* Maximizes space on mobile devices */
+  margin: 20px auto;
+  padding: 10px;
 }
 
-.back-link {
-  display: inline-block;
-  margin-bottom: 15px;
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-}
-
+/**
+ * The card component that wraps the form fields.
+ * Includes elevation (shadow) and rounded corners for a modern UI.
+ */
 .form-card {
   background: white;
-  padding: 30px;
+  padding: 20px; /* Reduced padding for mobile efficiency */
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .form-card h2 {
   margin-bottom: 20px;
-  font-size: 22px;
+  font-size: 20px; /* Scaled down for mobile */
+  text-align: center;
 }
 
+/* Form field typography and spacing */
 form label {
   display: block;
   margin-top: 15px;
@@ -31,6 +37,7 @@ form label {
   font-size: 14px;
 }
 
+/* Uniform styling for all input types */
 form input,
 form select,
 form textarea {
@@ -40,36 +47,118 @@ form textarea {
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
-form textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
+/**
+ * Action area layout.
+ * Stacked vertically on mobile to provide larger tap targets.
+ */
 .form-actions {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; 
+  gap: 12px;
   margin-top: 25px;
 }
 
-.cancel-btn {
-  background: #ccc;
-  padding: 10px 16px;
+.cancel-btn, .save-btn {
+  width: 100%; /* Full width buttons for easier mobile interaction */
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
   border-radius: 6px;
   text-decoration: none;
-  color: #333;
+}
+
+/* ============================================================
+   TABLET BREAKPOINT (From 768px)
+   ============================================================ */
+
+@media (min-width: 768px) {
+  .form-container {
+    max-width: 600px;
+    margin: 40px auto;
+  }
+
+  .form-card {
+    padding: 30px;
+  }
+
+  .form-card h2 {
+    text-align: left;
+    font-size: 22px;
+  }
+
+  /* Horizontal layout for action buttons on larger screens */
+  .form-actions {
+    flex-direction: row; 
+    justify-content: space-between;
+  }
+
+  .cancel-btn, .save-btn {
+    width: auto; /* Buttons shrink to fit their content */
+    padding: 10px 20px;
+  }
+}
+
+/* ============================================================
+   DESKTOP BREAKPOINT (From 1024px)
+   ============================================================ */
+
+@media (min-width: 1024px) {
+  .form-card {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Softer shadow for desktop */
+  }
+
+  /* Interactive focus states for better accessibility */
+  form input:focus, 
+  form select:focus, 
+  form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  }
+}
+
+/* ============================================================
+   LARGE SCREENS (From 1440px)
+   ============================================================ */
+
+@media (min-width: 1440px) {
+  .form-container {
+    max-width: 700px; /* Slight increase to maintain visual balance */
+  }
+
+  form label {
+    font-size: 15px; /* Enhanced readability */
+  }
+}
+
+/* ============================================================
+   UTILITIES & BUTTON VARIANTS
+   ============================================================ */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: #007bff;
   font-weight: bold;
 }
 
+/* Secondary button style */
+.cancel-btn {
+  background: #eee;
+  color: #333;
+}
+
+/* Primary button style */
 .save-btn {
   background: #007bff;
   color: white;
-  padding: 10px 16px;
   border: none;
-  border-radius: 6px;
-  font-weight: bold;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .save-btn:hover {

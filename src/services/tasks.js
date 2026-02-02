@@ -74,19 +74,27 @@ function loadTasks() {
   fetch(`${API_URL}/tasks?userId=${session.id}`)
     .then((res) => res.json())
     .then((tasks) => {
-      // MÉTRICAS
-      totalTasks.textContent = tasks.length;
-      pendingTasks.textContent = tasks.filter(
-        (task) => task.status === "pending",
-      ).length;
-      completedTasks.textContent = tasks.filter(
-        (task) => task.status === "completed",
-      ).length;
+      const total = tasks.length;
+      const completed = tasks.filter((task) => task.status === "completed").length;
+      const pending = tasks.filter((task) => task.status === "pending").length;
 
-      // Mostrar todas las tareas por defecto
+      // Cálculo del progreso
+      const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+      // Actualizar el DOM
+      totalTasks.textContent = total;
+      pendingTasks.textContent = pending;
+      completedTasks.textContent = completed;
+      
+      const progressPercent = document.getElementById("progressPercent");
+      if (progressPercent) {
+        progressPercent.textContent = `${percent}%`;
+      }
+
       renderTasks(tasks);
     });
 }
+
 
 // =======================
 // FILTROS
@@ -165,6 +173,7 @@ function toggleStatus(id, currentStatus) {
       }).then(loadTasks);
     });
 }
+
 
 
 // =======================

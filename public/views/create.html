@@ -1,22 +1,27 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Task | CRUDTASK</title>
+    <!-- Component-specific and global styles -->
     <link rel="stylesheet" href="../../src/styles/style.css" />
     <link rel="stylesheet" href="../../src/styles/create.css" />
+    <!-- Task creation logic -->
     <script src="../../src/services/create.js" type="module"></script>
   </head>
 
   <body>
     <main class="form-container">
+      <!-- Navigation Utility -->
       <a href="./tasks.html" class="back-link">← Back to Tasks</a>
 
       <div class="form-card">
         <h2>Create New Task</h2>
 
         <form id="createForm">
-          <label>Title</label>
+          <!-- Task Header Information -->
+          <label for="title">Title</label>
           <input
             type="text"
             id="title"
@@ -24,7 +29,7 @@
             required
           />
 
-          <label>Category</label>
+          <label for="category">Category</label>
           <input
             type="text"
             id="category"
@@ -32,28 +37,31 @@
             required
           />
 
-          <label>Priority</label>
+          <!-- Task Classification -->
+          <label for="priority">Priority</label>
           <select id="priority" required>
             <option value="high">High</option>
             <option value="medium" selected>Medium</option>
             <option value="low">Low</option>
           </select>
 
-          <label>Status</label>
+          <label for="status">Status</label>
           <select id="status" required>
             <option value="pending" selected>Pending</option>
             <option value="completed">Completed</option>
           </select>
 
-          <label>Due Date</label>
+          <!-- Timeline and Details -->
+          <label for="dueDate">Due Date</label>
           <input type="date" id="dueDate" />
 
-          <label>Description</label>
+          <label for="description">Description</label>
           <textarea
             id="description"
             placeholder="Add details about this task..."
           ></textarea>
 
+          <!-- Form Submission Actions -->
           <div class="form-actions">
             <a href="./tasks.html" class="cancel-btn">Cancel</a>
             <button type="submit" class="save-btn">Save Task</button>

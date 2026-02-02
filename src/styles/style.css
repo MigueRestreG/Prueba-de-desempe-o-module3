@@ -1,5 +1,5 @@
 /* ============================
-   RESET Y BASE
+   RESET AND BASE
 ============================ */
 
 * {
@@ -12,10 +12,13 @@
 body {
   background: #f3f5f9;
   color: #333;
-  padding-bottom: 40px;
 }
 
-.container{
+/**
+ * Main application layout.
+ * Uses a grid system to manage the sidebar and main content areas.
+ */
+.container {
   display: grid;
   grid-template-columns: 260fr 1180fr;
 }
@@ -58,11 +61,12 @@ body {
   font-size: 15px;
 }
 
+/* Danger/Logout button state */
 .sidebar button {
   color: #d9534f;
 }
 
-.sidebar-header{
+.sidebar-header {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -71,7 +75,7 @@ body {
 }
 
 /* ============================
-   CONTENIDO PRINCIPAL
+   MAIN CONTENT AREA
 ============================ */
 
 .with-sidebar {
@@ -110,7 +114,7 @@ nav button {
   padding: 8px 14px;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.2s ease-in-out;
 }
 
 nav button:hover {
@@ -118,7 +122,7 @@ nav button:hover {
 }
 
 /* ============================
-   TARJETAS DE AUTENTICACIÓN
+   AUTHENTICATION CARDS
 ============================ */
 
 .auth-container {
@@ -178,11 +182,12 @@ nav button:hover {
   background: #005fcc;
 }
 
-.container_main{
+.container_main {
   padding: 30px;
 }
+
 /* ============================
-   TABLAS
+   TABLES
 ============================ */
 
 table {
@@ -219,41 +224,40 @@ table button:hover {
   opacity: 0.8;
 }
 
-.section_h2{
+/* Section headings with action space */
+.section_h2 {
   display: flex;
   gap: 10px;
   padding-bottom: 15px;
-
   justify-content: space-between;
   align-items: center;
 }
 
-.section__h2__left{
+.section__h2__left {
   display: flex;
   flex-direction: column;
-
   gap: 10px;
+}
 
-  p{
-    color: gray;
-  }
+.section__h2__left p {
+  color: gray;
 }
 
 /* ============================
-   MÉTRICAS
+   METRICS
 ============================ */
 
 .metrics {
-  display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.metrics__container{
+.metrics__container {
   background: white;
   padding: 38px;
-  width: 300px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   font-weight: bold;
@@ -261,55 +265,90 @@ table button:hover {
   text-align: center;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-/* ============================
-   RESPONSIVE
-============================ */
+/* ============================================================
+   RESPONSIVE (DESKTOP, TABLET, AND MOBILE)
+   ============================================================ */
 
+/* 1. LARGE SCREENS (> 1440px) */
+@media (min-width: 1440px) {
+  .container_main {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* 2. TABLETS (Up to 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 200px 1fr; /* Narrower sidebar */
+  }
+  .metrics {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 metric grid */
+  }
+}
+
+/* 3. LARGE MOBILE / SMALL TABLETS (Up to 768px) */
 @media (max-width: 768px) {
-  .sidebar {
-    position: static;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    box-shadow: none;
-    padding: 10px 20px;
+  .container {
+    display: block; /* Remove side-by-side grid */
   }
 
-  .with-sidebar {
-    margin-left: 0;
-    padding: 20px;
+  .sidebar {
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
   }
 
   .sidebar nav {
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: row; /* Horizontal navigation menu */
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
   }
 
-  table {
-    font-size: 12px;
-  }
-
-  td,
-  th {
-    padding: 10px;
+  .sidebar-header { 
+    margin-bottom: 15px; 
   }
 
   .metrics {
+    grid-template-columns: 1fr; /* Single column for metrics */
+  }
+
+  .section_h2 {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 }
 
+/* 4. SMALL MOBILE (Up to 480px) */
 @media (max-width: 480px) {
-  .auth-card {
-    padding: 25px;
+  .container_main { 
+    padding: 15px; 
+  }
+  
+  .auth-card { 
+    padding: 25px; 
   }
 
   table {
     display: block;
-    overflow-x: auto;
+    overflow-x: auto; /* Enable horizontal scroll for table overflow */
     white-space: nowrap;
+  }
+
+  .metrics__container {
+    padding: 20px;
   }
 }

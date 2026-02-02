@@ -1,5 +1,68 @@
-/* Ya usa auth-card del CSS global */
+/* ============================================================
+   BASE STYLES (Mobile First - Up to 480px)
+   ============================================================ */
+
+/**
+ * Centered wrapper for authentication pages (Login/Register).
+ * Uses Flexbox to ensure the card is perfectly centered on all viewports.
+ */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f8fafc; /* Soft background to make the card stand out */
+}
+
+/**
+ * Main authentication card.
+ * Optimized for mobile touchpoints with appropriate padding and elevation.
+ */
+.auth-card {
+  width: 100%;
+  max-width: 350px; /* Ideal width for mobile devices */
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
 .auth-card p {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 14px;
+  color: #64748b;
+}
+
+/* ============================================================
+   TABLETS AND STANDARD DESKTOP (From 481px to 1439px)
+   ============================================================ */
+
+@media (min-width: 481px) {
+  .auth-card {
+    max-width: 400px;
+    padding: 40px;
+  }
+  
+  .auth-card p {
+    font-size: 15px;
+  }
+}
+
+/* ============================================================
+   LARGE SCREENS (From 1440px)
+   ============================================================ */
+
+@media (min-width: 1440px) {
+  .auth-card {
+    max-width: 450px; /* Increased spaciousness for ultra-wide displays */
+    padding: 50px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Subtle, elegant shadow depth */
+  }
+
+  .auth-card h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
 }

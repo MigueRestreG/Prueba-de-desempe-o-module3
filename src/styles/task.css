@@ -1,24 +1,11 @@
-.tasks-header {
-  display: flex;
-  justify-content: flex-end;
-  margin: 20px 0;
-}
+/* ============================================================
+   1. BASE STYLES (Mobile First)
+   ============================================================ */
 
-#newTaskBtn {
-  background: #28a745;
-  color: white;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-#newTaskBtn:hover {
-  background: #1e7e34;
-}
-
+/**
+ * Top navigation bar.
+ * Provides user context and maintains a clean white surface with elevation.
+ */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -33,39 +20,25 @@
   flex-direction: column;
 }
 
-.user-info strong {
-  font-size: 16px;
-}
+.user-info strong { font-size: 16px; }
+.user-info span { font-size: 13px; color: #666; }
 
-.user-info span {
-  font-size: 13px;
-  color: #666;
+/* Search and Filters */
+#searchInput {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
-
-#newTaskBtn {
-  background: #28a745;
-  color: white;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-#newTaskBtn:hover {
-  background: #1e7e34;
-}
-
-/* ============================
-   FILTROS DE TAREAS
-============================ */
 
 .task-filters {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 20px;
-  justify-content: end;
+  flex-wrap: wrap; /* Essential for small screens */
+  justify-content: center;
 }
 
 .filter-btn {
@@ -75,11 +48,7 @@
   background: white;
   cursor: pointer;
   font-size: 14px;
-  transition: 0.2s;
-}
-
-.filter-btn:hover {
-  background: #eef1f7;
+  transition: 0.2s ease-in-out;
 }
 
 .filter-btn.active {
@@ -88,33 +57,23 @@
   border-color: #007bff;
 }
 
-/* ============================
-   PRIORITY BADGES
-============================ */
-
-.priority {
+/* Badges (Status & Priority) */
+.status, .priority {
   padding: 4px 10px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: capitalize;
   color: white;
+  display: inline-block;
 }
 
-/* Colores */
-.priority.high {
-  background: #dc3545; /* rojo */
-}
+/* Status and Priority Color Variants */
+.status.pending, .priority.medium { background: #ffc107; color: #333; }
+.status.completed, .priority.low { background: #28a745; }
+.priority.high { background: #dc3545; }
 
-.priority.medium {
-  background: #ffc107; /* amarillo */
-  color: #333;
-}
-
-.priority.low {
-  background: #28a745; /* verde */
-}
-
+/* Action Button: New Task */
 .new-task-link {
   background: #007bff;
   color: white;
@@ -123,80 +82,89 @@
   font-weight: bold;
   text-decoration: none;
   transition: 0.2s;
+  display: block;
+  text-align: center;
 }
 
-.new-task-link:hover {
-  background: #1e7e34;
-}
-
-td:nth-child(4) {
-  font-weight: 500;
-  color: #555;
-}
-
-#searchInput {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.status {
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: capitalize;
-  color: white;
-}
-
-.status.pending {
-  background: #ffc107;
-  color: #333;
-}
-
-.status.completed {
-  background: #28a745;
-}
-
-.active-link{
+/* Sidebar Navigation Links */
+.active-link {
   color: white;
   display: flex;
   justify-content: start;
   gap: 12px;
-  margin: 0px;
-  font-size: 32px;
-
-  a{
-    margin: 0px;
-  }
-
-  img{
-    filter: grayscale(100%);
-  }
+  font-size: 24px; /* Scaled for readability */
+  padding: 10px;
 }
 
-.active-link:hover{
-  background-color: #d8d8d8;
-  color: white;
-}
+.active-link img { filter: grayscale(100%); width: 24px; }
+.active-link:hover { background-color: #d8d8d8; }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* ============================================================
+   2. RESPONSIVE: TABLETS (From 768px)
+   ============================================================ */
+
+@media (min-width: 768px) {
   .task-filters {
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
+  .new-task-link {
+    display: inline-block;
+    width: auto;
+  }
+
+  .tasks-header {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+  }
+}
+
+/* ============================================================
+   3. RESPONSIVE: PC / DESKTOP (From 1024px)
+   ============================================================ */
+
+@media (min-width: 1024px) {
+  .topbar {
+    padding: 15px 40px;
+  }
+
+  #searchInput {
+    max-width: 400px; /* Prevents input stretching on wide screens */
+  }
+
+  .active-link {
+    font-size: 18px; /* Elegant typography for desktop */
+  }
+}
+
+/* ============================================================
+   4. LARGE SCREENS (From 1440px)
+   ============================================================ */
+
+@media (min-width: 1440px) {
+  .container_main {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .status, .priority {
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+
+  .user-info strong { font-size: 18px; }
+}
+
+/* ============================================================
+   5. MOBILE SPECIFIC ADJUSTMENTS (Below 600px)
+   ============================================================ */
+
+@media (max-width: 600px) {
   .topbar {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-  }
-
-  .new-task-link {
-    width: 100%;
   }
 
   .tasks-header {
