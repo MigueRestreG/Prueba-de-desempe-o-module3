@@ -29,4 +29,12 @@ Prueba_De_Desempeno/
 
 Follow these steps to get the project running locally:
 
-1. Clone the Repository: 
+1. Clone the Repository: git clone https://github.com/MigueRestreG/Prueba-de-desempe-o-module3.git
+
+cd Prueba-de-desempe-o-module3
+
+2. Install Dependencies: npm install
+
+3. Run the API (Mock Server): npm run api
+
+4. Run the Development Server: npm run dev

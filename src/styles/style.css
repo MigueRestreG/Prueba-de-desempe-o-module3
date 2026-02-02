@@ -253,6 +253,7 @@ table button:hover {
   justify-content: space-between;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-bottom: 20px;
 }
 
 .metrics__container {

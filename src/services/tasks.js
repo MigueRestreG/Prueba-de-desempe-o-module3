@@ -46,6 +46,9 @@ function renderTasks(tasks) {
 
     tr.innerHTML = `
       <td>${task.title}</td>
+      <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${task.description || "No description"}">
+        ${task.description || '<span style="color: #ccc;">N/A</span>'}
+      </td>
       <td><span class="status ${task.status}">${task.status}</span></td>
       <td>${task.category || "—"}</td>
       <td><span class="priority ${task.priority}">${task.priority}</span></td>
@@ -75,7 +78,9 @@ function loadTasks() {
     .then((res) => res.json())
     .then((tasks) => {
       const total = tasks.length;
-      const completed = tasks.filter((task) => task.status === "completed").length;
+      const completed = tasks.filter(
+        (task) => task.status === "completed",
+      ).length;
       const pending = tasks.filter((task) => task.status === "pending").length;
 
       // Cálculo del progreso
@@ -85,7 +90,7 @@ function loadTasks() {
       totalTasks.textContent = total;
       pendingTasks.textContent = pending;
       completedTasks.textContent = completed;
-      
+
       const progressPercent = document.getElementById("progressPercent");
       if (progressPercent) {
         progressPercent.textContent = `${percent}%`;
@@ -94,7 +99,6 @@ function loadTasks() {
       renderTasks(tasks);
     });
 }
-
 
 // =======================
 // FILTROS
@@ -156,32 +160,29 @@ function toggleStatus(id, currentStatus) {
 
   // 1. Obtener la tarea completa
   fetch(`${API_URL}/tasks/${id}`)
-    .then(res => res.json())
-    .then(task => {
-
+    .then((res) => res.json())
+    .then((task) => {
       // 2. Actualizar solo el estado
-      const updatedTask = { 
+      const updatedTask = {
         ...task,
-        status: newStatus
+        status: newStatus,
       };
 
       // 3. Guardar sin perder campos
       fetch(`${API_URL}/tasks/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedTask)
+        body: JSON.stringify(updatedTask),
       }).then(loadTasks);
     });
 }
-
-
 
 // =======================
 // EDITAR TAREA
 // =======================
 function editTask(id, currentTitle) {
   const newTitle = prompt("Edit task title:", currentTitle);
-  
+
   // Validar que no esté vacío y que sea diferente al actual
   if (!newTitle || newTitle === currentTitle) return;
 
@@ -189,14 +190,14 @@ function editTask(id, currentTitle) {
     method: "PATCH", // Cambiado de PUT a PATCH
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      title: newTitle // Solo enviamos lo que queremos cambiar
+      title: newTitle, // Solo enviamos lo que queremos cambiar
     }),
   })
-  .then(res => {
-    if (!res.ok) throw new Error("Error al actualizar");
-    loadTasks();
-  })
-  .catch(err => console.error("Error:", err));
+    .then((res) => {
+      if (!res.ok) throw new Error("Error al actualizar");
+      loadTasks();
+    })
+    .catch((err) => console.error("Error:", err));
 }
 
 // =======================

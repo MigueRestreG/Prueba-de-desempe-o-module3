@@ -9,7 +9,7 @@
     },
     {
       "id": "8c81",
-      "name": "Prueba3",
+      "name": "Miguel",
       "email": "prueba1@prueba1.com",
       "password": "123456",
       "role": "user"
@@ -20,6 +20,13 @@
       "email": "migue200707@gmail.com",
       "password": "011007m",
       "role": "user"
+    },
+    {
+      "id": "67ca",
+      "name": "Alex Largo",
+      "email": "Alexlargomontoya@gmail.com",
+      "password": "123456789",
+      "role": "user"
     }
   ],
   "tasks": [
@@ -28,9 +35,19 @@
       "title": "No quiero",
       "category": "Si",
       "priority": "high",
-      "status": "completed",
+      "status": "pending",
       "dueDate": "2007-10-01",
       "description": "HOLAAAA",
+      "userId": "8c81"
+    },
+    {
+      "id": "e236",
+      "title": "Miguel",
+      "category": "Sopa",
+      "priority": "high",
+      "status": "pending",
+      "dueDate": "5030-01-10",
+      "description": "asda",
       "userId": "8c81"
     }
   ]

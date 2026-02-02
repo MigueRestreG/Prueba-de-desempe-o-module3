@@ -30,7 +30,7 @@
         </a>
         <!-- Admin Link: Visibility managed by user role -->
         <a href="./admin.html" class="active-link">
-           <span style="margin-right: 10px;">🛠</span> Admin 
+          <span style="margin-right: 10px;">🛠</span> Admin
         </a>
         <button id="logoutBtn" class="active-link">Logout</button>
       </nav>
@@ -72,6 +72,15 @@
             <div>Completed <br> <span id="completedTasks">0</span></div>
             <img src="../../src/assets/icon6.png" alt="Completed Tasks Icon">
           </div>
+          <div class="metrics__container progress-card">
+            <div class="metrics__content">
+              <p class="metrics__label">Overall Progress</p>
+              <span id="progressPercent">0%</span>
+            </div>
+            <div class="metrics__icon-wrapper">
+              <img src="../../src/assets/icon7.png" alt="Progress Indicator" class="progress-icon">
+            </div>
+          </div>
         </section>
 
         <!-- DATA FILTERING CONTROLS -->
@@ -84,16 +93,19 @@
         <!-- TASKS DATA TABLE -->
         <section class="table-container">
           <table>
+            <!-- Inside your table tag -->
             <thead>
-              <tr>
-                <th>Task</th>
-                <th>Status</th>
-                <th>Category</th>
-                <th>Priority</th>
-                <th>Due Date</th>
-                <th>Actions</th>
-              </tr>
+                <tr>
+                  <th>Task Name</th>
+                  <th>Description</th>
+                  <th>Assignee (ID)</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>date</th>
+                  <th>Actions</th>
+                </tr>
             </thead>
+
             <tbody id="taskList">
               <!-- Dynamically populated via tasks.js -->
             </tbody>
