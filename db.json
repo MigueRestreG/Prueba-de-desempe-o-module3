@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "email": "admin@admin.com",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": "8c81",
+      "name": "Prueba1",
+      "email": "prueba1@prueba1.com",
+      "password": "123456",
+      "role": "user"
+    }
+  ],
+  "tasks": [
+    {
+      "title": "PruebaTarea2",
+      "status": "completed",
+      "priority": "medium",
+      "userId": "8c81",
+      "id": "2155"
+    },
+    {
+      "title": "pruebaTarea3",
+      "status": "completed",
+      "priority": "medium",
+      "userId": "8c81",
+      "id": "cc76"
+    }
+  ]
+}

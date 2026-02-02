@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>My Tasks | CRUDTASK</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="../../src/services/tasks.js" type="module"></script>
+  <script src="../../src/services/guard.js" type="module"></script>
+</head>
+<body>
+
+  <header>
+    <h2>My Tasks</h2>
+    <nav>
+      <a href="./tasks.html">Tasks</a>
+      <a href="./profile.html">Profile</a>
+      <button id="logoutBtn">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- MÉTRICAS -->
+    <section class="metrics">
+      <div>Total: <span id="totalTasks">0</span></div>
+      <div>Pending: <span id="pendingTasks">0</span></div>
+      <div>Completed: <span id="completedTasks">0</span></div>
+    </section>
+
+    <section class="tasks-header">
+      <button id="newTaskBtn">+ New Task</button>
+    </section>
+
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody id="taskList">
+          <!-- tareas del usuario -->
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+</body>
+</html>
